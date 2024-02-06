@@ -18,7 +18,9 @@ async function getsongs(folder){
     currFolder =folder;
     // let a = await fetch(`http://127.0.0.1:3000/${folder}/`);
     // let a = await fetch(`https://github.com/bisxxal/Spotify/${folder}/`);
-    let a = await fetch(`https://github.com/bisxxal/Spotify/tree/main/${folder}/`);
+    // let a = await fetch(`https://github.com/bisxxal/Spotify/tree/main/${folder}/`);
+    let a = await fetch(`${folder}/`);
+    // https://github.com/bisxxal/Spotify/tree/main/songs/hindi
     let responce = await a.text();
  
     let div = document.createElement("div");
@@ -52,6 +54,7 @@ async function getsongs(folder){
 
        })
    })
+   return songs
 }
 const playMusic = (track,pause=false)=>{
 currentsong.src = (`${currFolder}/`+track);
