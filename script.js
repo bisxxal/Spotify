@@ -16,7 +16,8 @@ function convertSecondsToMinutes(seconds) {
 }
 async function getsongs(folder){
     currFolder =folder;
-    let a = await fetch(`http://127.0.0.1:3000/${folder}/`);
+    // let a = await fetch(`http://127.0.0.1:3000/${folder}/`);
+    let a = await fetch(`https://github.com/bisxxal/Spotify/${folder}/`);
     let responce = await a.text();
  
     let div = document.createElement("div");
@@ -42,12 +43,10 @@ async function getsongs(folder){
        <span>Play Now</span>
        <i class="ri-play-fill"></i>
    </div></li>`;
-  }
-   // var audio = new Audio(songs[0]);
+  } 
 
    Array.from(document.querySelector(".songlist").getElementsByTagName("li")).forEach((e)=>{
-       e.addEventListener("click", element => {
-       // console.log(e.querySelector(".info").firstElementChild.innerHTML);
+       e.addEventListener("click", element => { 
            playMusic(e.querySelector(".info").firstElementChild.innerHTML.trim())
 
        })
@@ -66,8 +65,7 @@ if(!pause){
 }
 async function main(){
 
-       await getsongs('songs/hindi');
-    //   songs =await getsongs('songs/hindi');
+       await getsongs('songs/hindi'); 
     playMusic(songs[0],true);
 
     //display all the albums all the paage
@@ -89,8 +87,7 @@ async function main(){
     //time update 
 
     currentsong.addEventListener('timeupdate',()=>{
-        // document.querySelector('.songtime').innerHTML=`${convertSecondsToMinutes(currentsong.currentTime)}/${convertSecondsToMinutes(currentsong.duration)}`
-  
+        
         document.querySelector('.circle').style.left=(currentsong.currentTime / currentsong.duration) *100+"%"
     })
  
