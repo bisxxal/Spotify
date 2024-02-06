@@ -18,7 +18,7 @@ async function getsongs(folder){
     currFolder =folder;
     // let a = await fetch(`http://127.0.0.1:3000/${folder}/`);
     // let a = await fetch(`https://github.com/bisxxal/Spotify/${folder}/`);
-    let a = await fetch(`https://github.com/bisxxal/Spotify/tree/main/songs${folder}/`);
+    let a = await fetch(`https://github.com/bisxxal/Spotify/tree/main/${folder}/`);
     let responce = await a.text();
  
     let div = document.createElement("div");
